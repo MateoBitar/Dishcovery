@@ -1,0 +1,130 @@
+/* Navbar layout */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Left section */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.navbar-left .icon {
+  width: 26px;
+  height: 26px;
+  stroke: #2ecc71;
+}
+
+/* Right section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Normal nav links */
+.navbar-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: #2ecc71;
+}
+
+/* Active (like Home) */
+.navbar-link.active {
+  background-color: #2ecc71;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* "Share Recipe" button */
+.navbar-share {
+  color: #000 !important;
+  font-weight: 600;
+  border: 1px solid #b0b0b0;
+  border-radius: 8px;
+  padding: 0.5rem 1.25rem;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navbar-share:hover {
+  color: #fff !important;
+  background-color: #2ecc71;
+  border-color: transparent;
+}
+
+
+/* Footer layout */
+.footer {
+  padding: 2rem;
+  background-color: #f8f8f8;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  border-top: 1px solid #ddd;
+}
+
+.footer-community h4 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #2ecc71;
+}
+
+.footer-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2ecc71;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.footer-bottom {
+  font-size: 0.85rem;
+  color: #777;
+}
+

@@ -1,0 +1,191 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+input CreateIngredientInput {
+  category: String!
+  name: String!
+}
+
+input CreateRecipeInput {
+  cook_time: Float
+  description: String!
+  difficulty: String
+  image: String
+  ingredients: [RecipeIngredientInput!]
+  instructions: String!
+  is_public: Boolean
+  title: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input FilterRecipesInput {
+  cook_time: Float
+  diet_pref: String
+  difficulty: String
+}
+
+type Ingredient {
+  category: String
+  ingredient_id: ID!
+  name: String
+}
+
+input LoginUserInput {
+  password: String!
+  username: String!
+}
+
+type Mutation {
+  addIngredientToRecipe(ingredient_id: String!, quantity: Float!, recipe_id: String!, unit: String!): RecipeIngredient!
+  createIngredient(input: CreateIngredientInput!): Ingredient!
+  createRecipe(input: CreateRecipeInput!): Recipe!
+  deleteIngredient(ingredient_id: String!): Boolean!
+  deleteRecipe(recipe_id: String!): Boolean!
+  deleteUser: Boolean!
+  followUser(follower_id: String!, following_id: String!): UserFollow!
+  loginUser(input: LoginUserInput!): AuthPayload!
+  registerUser(input: RegisterUserInput!): User!
+  removeIngredientFromRecipe(ingredient_id: String!, recipe_id: String!): Boolean!
+  saveRecipe(recipe_id: String!, user_id: String!): UserSavedRecipe!
+  unfollowUser(follower_id: String!, following_id: String!): Boolean!
+  unsaveRecipe(recipe_id: String!, user_id: String!): Boolean!
+  updateIngredient(ingredient_id: String!, input: UpdateIngredientInput!): Ingredient!
+  updateIngredientInRecipe(ingredient_id: String!, input: UpdateRecipeIngredientInput!, recipe_id: String!): RecipeIngredient!
+  updateRecipe(input: UpdateRecipeInput!, recipe_id: String!): Recipe!
+  updateUser(input: UpdateUserInput!): User!
+}
+
+type Query {
+  countSavesForRecipe(recipe_id: String!): Float!
+  filterRecipes(input: FilterRecipesInput!): [Recipe!]!
+  getAllIngredients: [Ingredient!]!
+  getAllPublicRecipes: [Recipe!]!
+  getDietPreference(user_id: String!): String
+  getFollowersCount(user_id: String!): Int!
+  getFollowingCount(user_id: String!): Int!
+  getIngredientById(ingredient_id: String!): Ingredient!
+  getIngredientByName(name: String!): [Ingredient!]!
+  getIngredientsByCategory(category: String!): [Ingredient!]!
+  getIngredientsByRecipe(recipe_id: String!): [RecipeIngredient!]!
+  getProfile: User!
+  getRecipeById(recipe_id: String!): Recipe!
+  getRecipesByIngredients(ingredientIds: [String!]!): [Recipe!]!
+  getSavedRecipes(user_id: String!): [Recipe!]!
+  getUserById(user_id: String!): User!
+  getUserByUsername(username: String!): User!
+  getUserProfile(user_id: String!): UserProfile!
+  getUserRecipes(user_id: String!): [Recipe!]!
+  isFollowing(follower_id: String!, following_id: String!): Boolean!
+  isRecipeSavedByUser(recipe_id: String!, user_id: String!): Boolean!
+  searchRecipesByTitle(title: String!): [Recipe!]!
+}
+
+type Recipe {
+  calories: Float!
+  carbs: Float!
+  cook_time: Float
+  description: String!
+  difficulty: String
+  fat: Float!
+  image: String
+  ingredients: [RecipeIngredient!]
+  instructions: String!
+  is_public: Boolean!
+  protein: Float!
+  recipe_id: String!
+  title: String
+  user_id: String
+}
+
+type RecipeIngredient {
+  ingredient: Ingredient
+  ingredient_id: String
+  quantity: Float!
+  recipe_id: String
+  unit: String!
+}
+
+input RecipeIngredientInput {
+  ingredient_id: String!
+  quantity: Float!
+  unit: String!
+}
+
+input RegisterUserInput {
+  diet_pref: String
+  password: String!
+  user_desc: String
+  username: String!
+}
+
+input UpdateIngredientInput {
+  category: String
+  ingredient_id: String!
+  name: String
+}
+
+input UpdateRecipeIngredientInput {
+  quantity: Float
+  unit: String
+}
+
+input UpdateRecipeInput {
+  cook_time: Float
+  description: String
+  difficulty: String
+  image: String
+  ingredients: [RecipeIngredientInput!]
+  instructions: String
+  is_public: Boolean
+  recipe_id: String!
+  title: String
+}
+
+input UpdateUserInput {
+  diet_pref: String
+  password: String
+  user_desc: String
+  username: String
+}
+
+type User {
+  diet_pref: String
+  followersCount: Int!
+  followingCount: Int!
+  isFollowing: Boolean
+  savedRecipes: [Recipe!]!
+  userRecipes: [Recipe!]!
+  user_desc: String
+  user_id: String!
+  username: String!
+}
+
+type UserFollow {
+  followed_at: DateTime!
+  follower_id: String!
+  following_id: String!
+}
+
+type UserProfile {
+  followersCount: Int!
+  followingCount: Int!
+  savedRecipes: [Recipe]
+  user: User!
+  userRecipes: [Recipe]
+}
+
+type UserSavedRecipe {
+  recipe_id: String!
+  saved_at: DateTime!
+  user_id: String!
+}

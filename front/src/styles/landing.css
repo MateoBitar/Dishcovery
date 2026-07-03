@@ -1,0 +1,161 @@
+.page-container {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Background Image */
+.background-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Main layout */
+.landing {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* Left Panel */
+.left-panel {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(25px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Right Panel (empty half) */
+.right-panel {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .left-panel {
+    width: 50%;
+  }
+
+  .right-panel {
+    display: block;
+    width: 50%;
+  }
+}
+
+/* Header */
+.header {
+  padding: 1.5rem 2rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header .icon {
+  width: 2rem;
+  height: 2rem;
+  color: #22c55e;
+}
+
+.logo-text {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Main content */
+.landing .main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.content-wrapper {
+  max-width: 600px;
+}
+
+.heading {
+  font-size: 3rem;
+  line-height: 1.2;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading {
+    font-size: 4rem;
+  }
+}
+
+.subheading {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .subheading {
+    font-size: 1.25rem;
+  }
+}
+
+.badge {
+  background-color: rgba(34, 197, 94, 0.2);
+  color: #15803d;
+  border: 1px solid #15803d;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  display: inline-block;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  background-color: #22c55e;
+  color: white;
+  font-size: 1.125rem;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #16a34a;
+  transform: translateY(-2px);
+}
+
+.stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.stat-number {
+  font-size: 2rem;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
